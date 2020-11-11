@@ -1,0 +1,29 @@
+<div class="container mt-5">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Address:</strong>
+    <%= @restaurant.address %>
+  </p>
+
+  <p>
+    <strong>
+      Reviews:
+    </strong>
+  </p>
+  <% @restaurant.reviews.each do |review| %>
+  <p><%= review.content %></p>
+  <p><%= link_to 'Delete review', review_path(review), method: :delete %></p>
+  <hr>
+  <% end %>
+
+  <%= link_to 'Add a review', new_restaurant_review_path(@restaurant) %>
+  <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+  <%= link_to 'Back', restaurants_path %>
+
+</div>
